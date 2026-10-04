@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-title-bold">Mis tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input
+      type="text"
+      placeholder="Nueva tarea"
+      name="task"
+      [(ngModel)]="task"
+      (keyup.enter)="addTask()">
+    </ion-input>
+    <ion-button
+      slot="end"
+      aria-label="Agregar tarea"
+      (click)="addTask()"
+      [disabled]="!task.trim()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-list *ngIf="tasks.length; else emptyTasks">
+    <ion-item *ngFor="let taskItem of tasks">
+      <ion-label>{{ taskItem }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #emptyTasks>
+    <p class="empty-message">Aún no tienes tareas. Agrega una para comenzar.</p>
+  </ng-template>
+</ion-content>
