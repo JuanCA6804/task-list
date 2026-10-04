@@ -1,0 +1,19 @@
+<ion-header class="ion-padding ion-no-border">
+  <ion-button expand="block" (click)="counterUp()" [disabled]="numero===MAXIMO">
+    <ion-icon slot="start" name="arrow-up"></ion-icon>
+    Aumentar
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="center-content big-font">
+    {{numero}}
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" (click)="counterDown()" [disabled]="numero===MINIMO">
+    <ion-icon slot="start" name="arrow-down"></ion-icon>
+    Disminuir
+  </ion-button>
+</ion-footer>
